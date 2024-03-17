@@ -24,7 +24,7 @@ Feature: Displaying System Status on HomePage
       | maxFilterLevel   | 20            |
       | pumpLakeStatus   | true          |
       | pumpFilterStatus | false         |
-    And the Arduino sends the JSON to the ESP01 preceded by the response command "#CMD rsp status"
+    And the Arduino sends the JSON to the ESP01 preceded by the response command "#CMD rsp status <JSON_Data>"
     And the ESP01 updates local values with the received JSON
     And the ESP01 displays the system status on the homepage based on the received JSON
 

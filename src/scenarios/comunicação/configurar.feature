@@ -26,7 +26,7 @@ Feature: System Configuration via WebServer
       | ultrasonicFailLimit    | 10            | num  | 0 - 20                 |
       | pumpDelay              | 5000          | num  | 0 - 600000             |
       | ultrasonicReadInterval | 2000          | num  | 2000 - 60000           |
-    And the Arduino sends the JSON to the ESP01 preceded by the response command "#CMD rsp config"
+    And the Arduino sends the JSON to the ESP01 preceded by the response command "#CMD rsp config <JSON_DATA>"
     And the ESP01 displays the configuration values on the configuration page in editable text boxes
 
   Scenario: Updating Configuration via the Configuration Page
