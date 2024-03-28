@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "Lago_Arduino",
+			"path": "../Lago_Arduino"
+		}
+	],
+	"settings": {}
+}

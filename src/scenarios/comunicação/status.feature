@@ -15,15 +15,18 @@ Feature: Displaying System Status on HomePage
     Then the ESP01 sends a "#CMD get status" request to the Arduino via serial communication
     And the Arduino receives the request
     And the Arduino assembles a JSON with the current status values including:
-      | field            | example value |
-      | lakeLevel        | 10            |
-      | minLakeLevel     | 4             |
-      | maxLakeLevel     | 20            |
-      | filterLevel      | 5             |
-      | minFilterLevel   | 4             |
-      | maxFilterLevel   | 20            |
-      | pumpLakeStatus   | true          |
-      | pumpFilterStatus | false         |
+      | field                  | example value | type | Range                  |
+      | distMinimaAguaLago     | 4             | num  | < distMaximaAguaLago   |
+      | distMaximaAguaLago     | 8             | num  | up to 100              |
+      | distMinimaAguaFiltro   | 4             | num  | < distMaximaAguaFiltro |
+      | distMaximaAguaFiltro   | 20            | num  | up to 100              |
+      | ultrasonicFailLimit    | 10            | num  | 0 - 20                 |
+      | pumpDelay              | 5000          | num  | 0 - 600000             |
+      | ultrasonicReadInterval | 2000          | num  | 2000 - 60000           |
+      | pumpLakeStatus         | On            | text | On - Off               |
+      | pumpFilterStatus       | On            | text | On - Off               |
+      | lakeLevel              | 15            | num  |                        |
+      | filterLevel            | 14            | num  |                        |
     And the Arduino sends the JSON to the ESP01 preceded by the response command "#CMD rsp status <JSON_Data>"
     And the ESP01 updates local values with the received JSON
     And the ESP01 displays the system status on the homepage based on the received JSON

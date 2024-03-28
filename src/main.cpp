@@ -5,7 +5,7 @@
 const char* ssid = "MOITILAS";
 const char* password = "caipirinha";
 ESP8266WebServer server(80);
-MDNSHandler mdnsHandler("esp01");
+MDNSHandler mdnsHandler("lagoMoita");
 
 void handleConfigurar() {
   // Implementar lógica de configuração
@@ -15,11 +15,6 @@ void handleConfigurar() {
 void handleStatus() {
   // Implementar lógica de status
   server.send(200, "application/json", "{\"message\": \"Status enviado\"}");
-}
-
-void handleControlarBomba() {
-  // Implementar controle das bombas
-  server.send(200, "application/json", "{\"message\": \"Comando de bomba enviado\"}");
 }
 
 void setup() {
@@ -39,7 +34,6 @@ void setup() {
       server.on("/", HTTP_GET, []() {server.send(200, "text/plain", "Servidor ESP01 ativo!");});
       server.on("/configurar", HTTP_GET, handleConfigurar);
       server.on("/status", HTTP_GET, handleStatus);
-      server.on("/controlarBomba", HTTP_GET, handleControlarBomba);
       server.begin();
       Serial.println("Servidor HTTP iniciado");
   }
