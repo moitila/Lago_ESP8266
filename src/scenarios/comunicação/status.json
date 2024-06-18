@@ -1,0 +1,33 @@
+{
+    "sensorData": [{
+        "name":"SensorFiltro",
+        "leituras": [20.00 , 21.00, 20.00],
+        "media": 20.25,
+        "limitfailures" : 5,
+        "status" : "OK",
+        "distanciaMaximaParaAgua" : 40.00,
+        "distanciaMinimaParaAgua" : 10.00
+    },
+    {
+        "name":"SensorLago",
+        "leituras": [10.00 , 11.00, 10.00],
+        "media": 10.25,
+        "limitfailures" : 5,
+        "status" : "OK",
+        "distanciaMaximaParaAgua" : 5.00,
+        "distanciaMinimaParaAgua" : 15.00
+    }],
+    "BombasData":[{
+        "name":"BombaFiltro",
+        "isRunning":"true",
+        "delayTime": 5
+    },{
+        "name":"BombaFiltro",    
+        "isRunning":"false",
+        "delayTime": 5
+    }],
+    "ultrasonicReadInterval": 15,
+    "log": {
+      "logEnabled": true
+    }
+  }

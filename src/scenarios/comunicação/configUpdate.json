@@ -1,0 +1,13 @@
+{
+    "comando" : "setConfig",
+    "dados" :   {
+                    "distMaximaAguaLago" : "",
+                    "distMinimaAguaLago" : "",
+                    "distMaximaAguaFiltro" : "", 
+                    "distMinimaAguaFiltro" : "",
+                    "ultrasonicFailLimit"  : "",
+                    "ultrasonicReadInterval" : "",
+                    "pumpDelay" : "",
+                    "logLigado" : ""
+                }
+ }                
