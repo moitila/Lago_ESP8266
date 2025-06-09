@@ -31,7 +31,7 @@ void setup() {
 
   // Definindo rotas
   server.on("/", HTTP_GET, []() {server.send(200, "text/plain", "Servidor ESP01 ativo!");});
-  server.on("/configurar", HTTP_GET, handleConfigurar);
+  server.on("/config", HTTP_POST, handleConfigurar);
   server.on("/status", HTTP_GET, handleStatus);
   server.begin();
   Serial.println("Servidor HTTP iniciado");
