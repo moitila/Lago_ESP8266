@@ -30,17 +30,21 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   // Definindo rotas
-  if (mdnsHandler.begin()){
-      server.on("/", HTTP_GET, []() {server.send(200, "text/plain", "Servidor ESP01 ativo!");});
-      server.on("/configurar", HTTP_GET, handleConfigurar);
-      server.on("/status", HTTP_GET, handleStatus);
-      server.begin();
-      Serial.println("Servidor HTTP iniciado");
+  server.on("/", HTTP_GET, []() {server.send(200, "text/plain", "Servidor ESP01 ativo!");});
+  server.on("/configurar", HTTP_GET, handleConfigurar);
+  server.on("/status", HTTP_GET, handleStatus);
+  server.begin();
+  Serial.println("Servidor HTTP iniciado");
+
+  if (!mdnsHandler.begin()) {
+      Serial.println("mDNS desativado");
   }
 }
 
 void loop() {
   server.handleClient(); // Manipula clientes do servidor Web
-  MDNS.update();  
+  if (mdnsHandler.started()) {
+    MDNS.update();
+  }
 }
 
